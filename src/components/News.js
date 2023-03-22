@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import NewsItem from './NewsItem'
 
 export default class News extends Component {
-    articles= [
+    articles = [
         {
             "source": {
                 "id": "espn-cric-info",
@@ -30,31 +30,27 @@ export default class News extends Component {
             "content": "Last week, we at ESPNcricinfo did something we have been thinking of doing for eight years now: pretend-live ball-by-ball commentary for a classic cricket match. We knew the result, yes, but we tried… [+6823 chars]"
         }
     ]
-    constructor(){
+    constructor() {
         super();
-        console.log("hello I am a construtor");
-        this.state={
-           articles:this.articles,
-           loading:false
+        this.state = {
+            articles: this.articles,
+            loading: false
         }
     }
     render() {
-       
+
         return (
             <>
                 <div className="container my-3">
                     <div className="my-4">
-                    <h1>News Pulse-top Headlines</h1>
-                    <div className="row">
-                        <div className="col-md-4">
-                            <NewsItem title="hero" description="adasdfadfafas" imageurl="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1099495_800x450.jpg" newsurl="Todo"/>
-                        </div>
-                        <div className="col-md-4">
-                            <NewsItem title="" description="adfasf"imageurl="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1099495_800x450.jpg" newsurl="Todo"/>
-                        </div>
-                        <div className="col-md-4">
-                            <NewsItem title="" description="sdfasfa" imageurl="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1099495_800x450.jpg"  newsurl="Todo"/>
-                        </div>
+                        <h1>News Pulse-top Headlines</h1>
+
+                        <div className="row">
+                            {this.state.articles.map((element) => {
+                                return <div className="col-md-4">
+                                    <NewsItem key={element.newsurl} title={element.tittle} description={element.description} imageurl={element.urlToImage} newsurl={element.url} />
+                                </div>
+                            })}
                         </div>
                     </div>
                 </div>
