@@ -3,7 +3,7 @@ First, clone the app:
 -------------------
 
 git clone : https://github.com/Raone2728/NewsPulse/edit/main/README.md
-Second, run the development server:
+#Second, run the development server:
 
 npm start
 
