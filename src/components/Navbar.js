@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+
 export default class App extends Component {
 
     render() {
@@ -16,9 +17,13 @@ export default class App extends Component {
                                 <li className="nav-item">
                                     <a className="nav-link active" aria-current="page" href="/">Home</a>
                                 </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="/">About</a>
-                                </li>
+                                <li className="nav-item"><a className="nav-link" to="/business">Business</a></li>
+                            <li className="nav-item"><a className="nav-link" href="/entertainment">Entertainment</a></li>
+                            <li className="nav-item"><a className="nav-link" href="/general">General</a></li>
+                            <li className="nav-item"><a className="nav-link" href="/health">Health</a></li>
+                            <li className="nav-item"><a className="nav-link" href="/science">Science</a></li>
+                            <li className="nav-item"><a className="nav-link" href="/sports">Sports</a></li>
+                            <li className="nav-item"><a className="nav-link" href="/technology">Technology</a></li>
 
                             </ul>
 
