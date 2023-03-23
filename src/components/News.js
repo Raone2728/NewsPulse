@@ -3,6 +3,7 @@ import NewsItem from './NewsItem'
 
 export default class News extends Component {
     articles = [] 
+    
     constructor() {
         super();
         this.state = {
@@ -14,7 +15,7 @@ export default class News extends Component {
     }
 
   async  componentDidMount(){
-        let url="https://newsapi.org/v2/top-headlines?country=in&apiKey=9d86bb574f92439693b1754a8294e9c6&page=1&pageSize=12"
+        let url=`https://newsapi.org/v2/top-headlines?country=in&apiKey=b0a95bc691b748dcbba7fb2d9f370c3c&page=1&pageSize=${this.props.pageSize}`
         let data= await fetch(url);
         let convertdata=await data.json();
          this.setState({articles : convertdata.articles ,totalResults: convertdata.totalResults})
@@ -22,10 +23,10 @@ export default class News extends Component {
     
     handleNextClick=async()=>{
         // if(this.state.pagw+1>Math.ceil(this.state))
-        if(this.state.page+1>Math.ceil(this.state.totalResults/15)){
+        if(this.state.page+1>Math.ceil(this.state.totalResults/this.props.pageSize)){
                 alert("no more page is avaiable");
         }else{
-        let url=`https://newsapi.org/v2/top-headlines?country=in&apiKey=9d86bb574f92439693b1754a8294e9c6&page=${this.state.page+1}&pageSize=12`;
+        let url=`https://newsapi.org/v2/top-headlines?country=in&apiKey=b0a95bc691b748dcbba7fb2d9f370c3c&page=${this.state.page+1}&pageSize=${this.props.pageSize}`
         let data= await fetch(url);
         let convertdata=await data.json();
          this.setState({articles : convertdata.articles,
@@ -36,7 +37,7 @@ export default class News extends Component {
    }
 
    handlePrevClick=async ()=>{
-    let url=`https://newsapi.org/v2/top-headlines?country=in&apiKey=9d86bb574f92439693b1754a8294e9c6&page=${this.state.page-1}&pageSize=12  `;
+    let url=`https://newsapi.org/v2/top-headlines?country=in&apiKey=b0a95bc691b748dcbba7fb2d9f370c3c&page=${this.state.page-1}&pageSize=${this.props.pageSize} `
         let data= await fetch(url);
         let convertdata=await data.json();
          this.setState({articles : convertdata.articles,
@@ -53,7 +54,8 @@ export default class News extends Component {
             <>
                 <div className="container my-3">
                     <div className="my-4">
-                        <h1>News Pulse-top Headlines</h1>
+                        <h1 className="text-center">News Pulse-top Headlines</h1>
+                     
 
                         <div className="row">
                             {this.state.articles.map((element) => {
