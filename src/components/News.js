@@ -65,7 +65,7 @@ export default class News extends Component {
             <>
                 <div className="container my-3">
                     <div className="my-4">
-                        <h1 className="text-center">News Pulse-top Headlines</h1>
+                        <h1 className="text-center" style={{margin:'40px 0px'}}>News Pulse-top Headlines</h1>
                      
 
                         <div className="row">
