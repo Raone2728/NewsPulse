@@ -2,7 +2,9 @@
 First, clone the app:
 -------------------
 
-git clone : https://github.com/Raone2728/NewsPulse/edit/main/README.md
+git clone : https://github.com/Raone2728/NewsPulse
+
+first# npm install 
 #Second, run the development server:
 
 npm start
