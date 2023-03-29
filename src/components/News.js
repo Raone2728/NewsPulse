@@ -26,7 +26,7 @@ export default class News extends Component {
     }
 
   async  componentDidMount(){
-        let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=b0a95bc691b748dcbba7fb2d9f370c3c&page=1&pageSize=${this.props.pageSize}`
+        let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=9d86bb574f92439693b1754a8294e9c6&page=1&pageSize=${this.props.pageSize}`
         let data= await fetch(url);
         let convertdata=await data.json();
          this.setState({articles : convertdata.articles ,totalResults: convertdata.totalResults})
@@ -37,7 +37,7 @@ export default class News extends Component {
         if(this.state.page+1>Math.ceil(this.state.totalResults/this.props.pageSize)){
                 alert("no more page is avaiable");
         }else{
-        let url=`https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=b0a95bc691b748dcbba7fb2d9f370c3c&page=${this.state.page+1}&pageSize=${this.props.pageSize}`
+        let url=`https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&category=${this.props.categ}&apiKey=b0a95bc691b748dcbba7fb2d9f370c3c&page=${this.state.page+1}&pageSize=${this.props.pageSize}`
         let data= await fetch(url);
         let convertdata=await data.json();
          this.setState({articles : convertdata.articles,
@@ -48,7 +48,7 @@ export default class News extends Component {
    }
 
    handlePrevClick=async ()=>{
-    let url=`https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=b0a95bc691b748dcbba7fb2d9f370c3c&page=${this.state.page-1}&pageSize=${this.props.pageSize} `
+    let url=`https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&category=${this.props.categ}&apiKey=b0a95bc691b748dcbba7fb2d9f370c3c&page=${this.state.page-1}&pageSize=${this.props.pageSize} `
         let data= await fetch(url);
         let convertdata=await data.json();
          this.setState({articles : convertdata.articles,
